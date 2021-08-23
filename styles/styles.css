@@ -117,3 +117,11 @@ h3 {
 #celsius-link:hover {
   color: #8c82fc;
 }
+
+#github-link {
+  font-family: "Source Code Pro", monospace;
+  color: black;
+  font-size: 15px;
+  text-align: center;
+  display: block;
+}
