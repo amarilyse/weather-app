@@ -1,0 +1,119 @@
+h1 {
+  text-align: center;
+  font-family: "Source Code Pro", monospace;
+  font-size: 60px;
+  color: black;
+}
+
+h2,
+h3 {
+  font-family: "Source Code Pro", monospace;
+  color: black;
+  font-size: 30px;
+}
+
+.card {
+  padding: 30px;
+  top: 50px;
+}
+
+.units {
+  font-family: "Source Code Pro", monospace;
+  font-size: 30px;
+  color: black;
+  text-decoration: none;
+}
+
+.cloudy-sun {
+  width: 100px;
+}
+
+.rainy {
+  width: 100px;
+}
+
+.enterCity {
+  width: 250px;
+  padding: 5px;
+  border: 1px solid #dfdfdf;
+  border-radius: 10px;
+  font-family: "Source Code Pro", monospace;
+}
+
+.searchBtn {
+  width: 80px;
+  padding: 5px;
+  font-family: "Source Code Pro", monospace;
+  background: #8c82fc;
+  color: #ffffff;
+  border: 1px solid #8c82fc;
+  border-radius: 10px;
+}
+
+.searchBtn:hover {
+  background: #8176f8;
+  color: #ffffff;
+  border: 1px solid #8176f8;
+  transition: all 2ms ease-in-out;
+}
+
+.currentBtn {
+  width: 80px;
+  padding: 5px;
+  font-family: "Source Code Pro", monospace;
+  background: #8c82fc;
+  color: #ffffff;
+  border: 1px solid #8c82fc;
+  border-radius: 10px;
+}
+
+.currentBtn:hover {
+  background: #8176f8;
+  color: #ffffff;
+  border: 1px solid #8176f8;
+  transition: all 2ms ease-in-out;
+}
+
+.col {
+  text-align: center;
+  font-family: "Source Code Pro", monospace;
+}
+
+.col:hover {
+  padding: 5px;
+  margin: 5px;
+}
+
+#degree-unit {
+  font-family: "Source Code Pro", monospace;
+  color: black;
+  font-size: 30px;
+}
+
+#current-degrees {
+  font-family: "Source Code Pro", monospace;
+  color: black;
+  font-size: 30px;
+}
+
+#fahrenheit-link {
+  font-family: "Source Code Pro", monospace;
+  color: black;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+#celsius-link {
+  font-family: "Source Code Pro", monospace;
+  color: black;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+#fahrenheit-link:hover {
+  color: #8c82fc;
+}
+
+#celsius-link:hover {
+  color: #8c82fc;
+}
