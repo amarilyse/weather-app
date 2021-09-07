@@ -12,6 +12,14 @@ h3 {
   font-size: 30px;
 }
 
+small {
+  font-family: "Source Code Pro", monospace;
+  color: black;
+  font-size: 15px;
+  text-align: center;
+  display: block;
+}
+
 .card {
   padding: 30px;
   top: 50px;
@@ -116,12 +124,4 @@ h3 {
 
 #celsius-link:hover {
   color: #8c82fc;
-}
-
-#github-link {
-  font-family: "Source Code Pro", monospace;
-  color: black;
-  font-size: 15px;
-  text-align: center;
-  display: block;
 }
