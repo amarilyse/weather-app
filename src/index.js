@@ -1,5 +1,5 @@
 let now = new Date();
-let h3 = document.querySelector("h3");
+let dateTime = document.querySelector("#date-time");
 
 let days = [
   "Sunday",
@@ -12,14 +12,20 @@ let days = [
 ];
 let day = days[now.getDay()];
 let hours = now.getHours();
+if (hours < 10) {
+  hours = `0${hours}`;
+}
 let minutes = now.getMinutes();
+if (minutes < 10) {
+  minutes = `0${minutes}`;
+}
 
-h3.innerHTML = `${day} ${hours}:${minutes}`;
+dateTime.innerHTML = `${day} ${hours}:${minutes}`;
 
 function searchCity(event) {
   event.preventDefault();
   let city = document.querySelector("#city-input").value;
-  document.querySelector("h2").innerHTML = city;
+  document.querySelector("#current-city").innerHTML = city;
   let apiKey = "19245f1fde1b15bc22712eea7d142e13";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(`${apiUrl}`).then(currentWeater);
@@ -29,6 +35,12 @@ function currentWeater(response) {
   document.querySelector("#current-city").innerHTML = response.data.name;
   document.querySelector("#current-degrees").innerHTML = Math.round(
     response.data.main.temp
+  );
+  document.querySelector("#weather-description").innerHTML =
+    response.data.weather[0].description;
+  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#wind-speed").innerHTML = Math.round(
+    response.data.wind.speed
   );
 }
 

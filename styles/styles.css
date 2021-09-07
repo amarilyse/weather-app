@@ -1,23 +1,16 @@
-h1 {
-  text-align: center;
-  font-family: "Source Code Pro", monospace;
-  font-size: 60px;
-  color: black;
-}
-
-h2,
-h3 {
-  font-family: "Source Code Pro", monospace;
-  color: black;
-  font-size: 30px;
-}
-
 small {
   font-family: "Source Code Pro", monospace;
   color: black;
   font-size: 15px;
   text-align: center;
   display: block;
+}
+
+ul {
+  list-style: none;
+  font-family: "Source Code Pro", monospace;
+  color: black;
+  font-size: 20px;
 }
 
 .card {
@@ -92,6 +85,24 @@ small {
   margin: 5px;
 }
 
+#current-city {
+  font-family: "Source Code Pro", monospace;
+  color: #8176f8;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#date-time,
+#weather-description {
+  font-family: "Source Code Pro", monospace;
+  color: black;
+  font-size: 20px;
+}
+
+#weather-description {
+  text-transform: capitalize;
+}
+
 #degree-unit {
   font-family: "Source Code Pro", monospace;
   color: black;
@@ -101,7 +112,7 @@ small {
 #current-degrees {
   font-family: "Source Code Pro", monospace;
   color: black;
-  font-size: 30px;
+  font-size: 80px;
 }
 
 #fahrenheit-link {

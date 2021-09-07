@@ -25,7 +25,6 @@
     <div class="container">
       <div class="card">
         <div class="body">
-          <h1>Weather</h1>
           <form id="search-form">
             <input
               type="search"
@@ -37,13 +36,27 @@
             <button class="currentBtn" id="current-button">Current</button>
           </form>
           <br />
-          <h2 id="current-city">Search City</h2>
-          <h3></h3>
-          <span id="current-degrees">__</span>
-          <span class="units"
-            ><a href="#" id="celsius-link">°C</a> |
-            <a href="#" id="fahrenheit-link">°F</a>
-          </span>
+
+          <div class="row">
+            <div class="col-6">
+              <div id="current-city">Search City</div>
+              <div id="date-time"></div>
+              <div id="weather-description"></div>
+              <span id="current-degrees">__</span>
+              <span class="units"
+                ><a href="#" id="celsius-link">°C</a> |
+                <a href="#" id="fahrenheit-link">°F</a>
+              </span>
+            </div>
+            <div class="col-6">
+              <ul>
+              </br>
+              </br>
+                <li>Humidity: <span id="humidity"></span>%</li>
+                <li>Wind Speed: <span id="wind-speed"></span> km/h</li>
+              </ul>
+            </div>
+          </div>
 
           <div class="row">
             <div class="col">
