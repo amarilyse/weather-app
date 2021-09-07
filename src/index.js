@@ -42,6 +42,13 @@ function currentWeater(response) {
   document.querySelector("#wind-speed").innerHTML = Math.round(
     response.data.wind.speed
   );
+  let iconImg = document.querySelector("#icon-img");
+
+  iconImg.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconImg.setAttribute("alt", response.data.weather[0].description);
 }
 
 let search = document.querySelector("#search-form");
