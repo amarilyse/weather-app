@@ -103,6 +103,11 @@ ul {
   text-transform: capitalize;
 }
 
+#icon-img {
+  position: relative;
+  top: -20px;
+}
+
 #degree-unit {
   font-family: "Source Code Pro", monospace;
   color: black;
