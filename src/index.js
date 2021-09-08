@@ -1,34 +1,25 @@
-let now = new Date();
-let dateTime = document.querySelector("#date-time");
+function date(currentTime) {
+  let now = new Date(currentTime);
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[now.getDay()];
+  let hours = now.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
 
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[now.getDay()];
-let hours = now.getHours();
-if (hours < 10) {
-  hours = `0${hours}`;
-}
-let minutes = now.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
-}
-
-dateTime.innerHTML = `${day} ${hours}:${minutes}`;
-
-function searchCity(event) {
-  event.preventDefault();
-  let city = document.querySelector("#city-input").value;
-  document.querySelector("#current-city").innerHTML = city;
-  let apiKey = "19245f1fde1b15bc22712eea7d142e13";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(`${apiUrl}`).then(currentWeater);
+  return `${day} ${hours}:${minutes}`;
 }
 
 function currentWeater(response) {
@@ -43,6 +34,9 @@ function currentWeater(response) {
   document.querySelector("#wind-speed").innerHTML = Math.round(
     response.data.wind.speed
   );
+  document.querySelector("#date-time").innerHTML = date(
+    response.data.dt * 1000
+  );
   let iconImg = document.querySelector("#icon-img");
 
   iconImg.setAttribute(
@@ -50,6 +44,15 @@ function currentWeater(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconImg.setAttribute("alt", response.data.weather[0].description);
+}
+
+function searchCity(event) {
+  event.preventDefault();
+  let city = document.querySelector("#city-input").value;
+  document.querySelector("#current-city").innerHTML = city;
+  let apiKey = "19245f1fde1b15bc22712eea7d142e13";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(`${apiUrl}`).then(currentWeater);
 }
 
 function displayFahrenheit(event) {
@@ -75,3 +78,5 @@ fahrenheitLink.addEventListener("click", displayFahrenheit);
 
 let celsisuLink = document.querySelector("#celsius-link");
 celsisuLink.addEventListener("click", displayCelsius);
+
+currentWeater("Miami");
