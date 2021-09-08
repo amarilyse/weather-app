@@ -32,10 +32,11 @@ function searchCity(event) {
 }
 
 function currentWeater(response) {
+  celsiusTemp = response.data.main.temp;
+
   document.querySelector("#current-city").innerHTML = response.data.name;
-  document.querySelector("#current-degrees").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  document.querySelector("#current-degrees").innerHTML =
+    Math.round(celsiusTemp);
   document.querySelector("#weather-description").innerHTML =
     response.data.weather[0].description;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
@@ -51,5 +52,26 @@ function currentWeater(response) {
   iconImg.setAttribute("alt", response.data.weather[0].description);
 }
 
+function displayFahrenheit(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#current-degrees");
+  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+  tempElement.innerHTML = Math.round(fahrenheitTemp);
+}
+
+function displayCelsius(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#current-degrees");
+  tempElement.innerHTML = Math.round(celsiusTemp);
+}
+
+let celsiusTemp = null;
+
 let search = document.querySelector("#search-form");
 search.addEventListener("submit", searchCity);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheit);
+
+let celsisuLink = document.querySelector("#celsius-link");
+celsisuLink.addEventListener("click", displayCelsius);
