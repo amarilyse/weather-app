@@ -25,6 +25,15 @@ ul {
   text-decoration: none;
 }
 
+.forecast-temps {
+  font-family: "Source Code Pro", monospace;
+  color: black;
+}
+
+.forecast-low {
+  opacity: 0.6;
+}
+
 .cloudy-sun {
   width: 100px;
 }
