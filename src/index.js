@@ -22,38 +22,6 @@ function date(currentTime) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast() {
-  let forecast = document.querySelector("#forecast");
-  let days = ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
-  let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col">
-                <div class="forecast-day">${day}</div>
-                <img
-                 class="cloudy-sun"
-                src="images/wi-day-cloudy-high.svg"
-                alt="cloudy day"
-              />
-                <div class="forecast-temps">
-                  <span class="forecast-high">80°/</span>
-                  <span class="forecast-low">69°</span>
-                </div>
-              </div>`;
-  });
-  forecastHTML = forecastHTML + `</div>`;
-  forecast.innerHTML = forecastHTML;
-}
-
-function getForecast(coordinates) {
-  console.log(coordinates);
-  let apiKey = "19245f1fde1b15bc22712eea7d142e13";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayForecast);
-}
-
 function currentWeater(response) {
   celsiusTemp = response.data.main.temp;
 
@@ -76,21 +44,15 @@ function currentWeater(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconImg.setAttribute("alt", response.data.weather[0].description);
-
-  getForecast(response.data.coord);
 }
 
-function searchCity(city) {
-  let apiKey = "19245f1fde1b15bc22712eea7d142e13";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(`${apiUrl}`).then(currentWeater);
-}
-
-function submit(event) {
+function searchCity(event) {
   event.preventDefault();
   let city = document.querySelector("#city-input").value;
   document.querySelector("#current-city").innerHTML = city;
-  search(city.value);
+  let apiKey = "19245f1fde1b15bc22712eea7d142e13";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(`${apiUrl}`).then(currentWeater);
 }
 
 function displayFahrenheit(event) {
@@ -108,8 +70,6 @@ function displayCelsius(event) {
 
 let celsiusTemp = null;
 
-displayForecast();
-
 let search = document.querySelector("#search-form");
 search.addEventListener("submit", searchCity);
 
@@ -119,4 +79,4 @@ fahrenheitLink.addEventListener("click", displayFahrenheit);
 let celsisuLink = document.querySelector("#celsius-link");
 celsisuLink.addEventListener("click", displayCelsius);
 
-searchCity("Miami");
+currentWeater("Miami");

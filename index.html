@@ -40,10 +40,13 @@
 
           <div class="row">
             <div class="col-6">
-              <div id="current-city"></div>
+              <div id="current-city">Search City</div>
               <div id="date-time"></div>
               <div id="weather-description"></div>
-              <span id="current-degrees"></span>
+              <span>
+                <img src="http://openweathermap.org/img/wn/03d@2x.png" alt="clear" id="icon-img" class="float-left" />
+              </span>
+              <span id="current-degrees">__</span>
               <span class="units"
                 ><a href="#" id="celsius-link">°C</a> |
                 <a href="#" id="fahrenheit-link">°F</a>
@@ -58,23 +61,49 @@
               </ul>
             </div>
           </div>
-          <div class="forecast" id="forecast">
-            <div class="row">
-              <div class="col">
-                <div class="forecast-day">Monday</div>
-                <img
-                 class="cloudy-sun"
+
+          <div class="row">
+            <div class="col">
+              Monday<br /><img
+                class="cloudy-sun"
                 src="images/wi-day-cloudy-high.svg"
                 alt="cloudy day"
               />
-                <div class="forecast-temps">
-                  <span class="forecast-high">80°/</span>
-                  <span class="forecast-low">69°</span>
-                </div>
-              </div>
+              <br />90°/69°
+            </div>
+            <div class="col">
+              Tuesday<br /><img
+                class="cloudy-sun"
+                src="images/wi-day-cloudy-high.svg"
+                alt="cloudy day"
+              />
+              <br />90°/69°
             </div>
 
-
+            <div class="col">
+              Wednesday<br /><img
+                class="cloudy-sun"
+                src="images/wi-day-cloudy-high.svg"
+                alt="cloudy day"
+              />
+              <br />88°/70°
+            </div>
+            <div class="col">
+              Thursday<br /><img
+                class="rainy"
+                src="images/wi-showers.svg"
+                alt="rainy day"
+              />
+              <br />83°/69°
+            </div>
+            <div class="col">
+              Friday<br /><img
+                class="cloudy-sun"
+                src="images/wi-day-cloudy-high.svg"
+                alt="cloudy day"
+              />
+              <br />90°/71°
+            </div>
           </div>
         </div>
       </div>
