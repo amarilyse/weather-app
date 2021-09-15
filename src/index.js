@@ -78,5 +78,3 @@ fahrenheitLink.addEventListener("click", displayFahrenheit);
 
 let celsisuLink = document.querySelector("#celsius-link");
 celsisuLink.addEventListener("click", displayCelsius);
-
-currentWeater("Miami");

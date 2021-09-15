@@ -25,12 +25,13 @@ ul {
   text-decoration: none;
 }
 
-.cloudy-sun {
-  width: 100px;
+.weather-forecast {
+  font-family: "Source Code Pro", monospace;
+  color: black;
 }
 
-.rainy {
-  width: 100px;
+.weather-forecast-temperature-min {
+  opacity: 0.6;
 }
 
 .enterCity {
