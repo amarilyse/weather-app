@@ -28,6 +28,7 @@ ul {
 .weather-forecast {
   font-family: "Source Code Pro", monospace;
   color: black;
+  text-align: center;
 }
 
 .weather-forecast-temperature-min {
