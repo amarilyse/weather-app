@@ -56,12 +56,12 @@ function displayForecast(response) {
             forecastDay.weather[0].icon
           }@2x.png"
           alt=""
-          width="42"
+          width="55"
         />
         <div class="weather-forecast-temperatures">
           <span class="weather-forecast-temperature-max"> ${Math.round(
             forecastDay.temp.max
-          )}° </span>
+          )}° /</span>
           <span class="weather-forecast-temperature-min"> ${Math.round(
             forecastDay.temp.min
           )}° </span>
@@ -120,6 +120,8 @@ function submit(event) {
   searchCity(cityElement.value);
 }
 
+searchCity("Miami");
+
 function displayFahrenheit(event) {
   event.preventDefault();
   let tempElement = document.querySelector("#current-degrees");
@@ -136,7 +138,7 @@ function displayCelsius(event) {
 let celsiusTemp = null;
 
 let search = document.querySelector("#search-form");
-search.addEventListener("submit", searchCity);
+search.addEventListener("submit", submit);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheit);
@@ -144,4 +146,4 @@ fahrenheitLink.addEventListener("click", displayFahrenheit);
 let celsisuLink = document.querySelector("#celsius-link");
 celsisuLink.addEventListener("click", displayCelsius);
 
-searchCity("Miami");
+displayForecast(response);
