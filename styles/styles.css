@@ -23,6 +23,8 @@ ul {
   font-size: 30px;
   color: black;
   text-decoration: none;
+  position: relative;
+  top: -30px;
 }
 
 .weather-forecast {
@@ -120,26 +122,4 @@ ul {
   font-family: "Source Code Pro", monospace;
   color: black;
   font-size: 80px;
-}
-
-#fahrenheit-link {
-  font-family: "Source Code Pro", monospace;
-  color: black;
-  font-size: 30px;
-  text-decoration: none;
-}
-
-#celsius-link {
-  font-family: "Source Code Pro", monospace;
-  color: black;
-  font-size: 30px;
-  text-decoration: none;
-}
-
-#fahrenheit-link:hover {
-  color: #8c82fc;
-}
-
-#celsius-link:hover {
-  color: #8c82fc;
 }

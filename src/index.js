@@ -76,9 +76,8 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "19245f1fde1b15bc22712eea7d142e13";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -110,7 +109,7 @@ function currentWeater(response) {
 
 function searchCity(city) {
   let apiKey = "19245f1fde1b15bc22712eea7d142e13";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
   axios.get(`${apiUrl}`).then(currentWeater);
 }
 
@@ -122,28 +121,5 @@ function submit(event) {
 
 searchCity("Miami");
 
-function displayFahrenheit(event) {
-  event.preventDefault();
-  let tempElement = document.querySelector("#current-degrees");
-  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
-  tempElement.innerHTML = Math.round(fahrenheitTemp);
-}
-
-function displayCelsius(event) {
-  event.preventDefault();
-  let tempElement = document.querySelector("#current-degrees");
-  tempElement.innerHTML = Math.round(celsiusTemp);
-}
-
-let celsiusTemp = null;
-
 let search = document.querySelector("#search-form");
 search.addEventListener("submit", submit);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheit);
-
-let celsisuLink = document.querySelector("#celsius-link");
-celsisuLink.addEventListener("click", displayCelsius);
-
-displayForecast(response);
