@@ -84,9 +84,12 @@ ul {
   font-family: "Source Code Pro", monospace;
 }
 
-.col:hover {
-  padding: 5px;
-  margin: 5px;
+.github-link {
+  color: #8c82fc;
+}
+
+.github-link:hover {
+  color: #8176f8;
 }
 
 #current-city {
