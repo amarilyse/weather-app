@@ -81,7 +81,7 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
-function currentWeater(response) {
+function currentWeather(response) {
   celsiusTemp = response.data.main.temp;
 
   document.querySelector("#current-city").innerHTML = response.data.name;
@@ -110,7 +110,7 @@ function currentWeater(response) {
 function searchCity(city) {
   let apiKey = "19245f1fde1b15bc22712eea7d142e13";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
-  axios.get(`${apiUrl}`).then(currentWeater);
+  axios.get(`${apiUrl}`).then(currentWeather);
 }
 
 function submit(event) {
@@ -118,6 +118,21 @@ function submit(event) {
   let cityElement = document.querySelector("#city-input");
   searchCity(cityElement.value);
 }
+
+function searchCurrent(position) {
+  let apiKey = "19245f1fde1b15bc22712eea7d142e13";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
+
+  axios.get(apiUrl).then(currentWeather);
+}
+
+function getCurrent(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchCurrent);
+}
+
+let currentButton = document.querySelector("#current-button");
+currentButton.addEventListener("click", getCurrent);
 
 searchCity("Miami");
 
